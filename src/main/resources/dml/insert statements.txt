@@ -1,0 +1,105 @@
+INSERT INTO address (id, street1, street2, city, state_province, postal_code, country)
+VALUES 
+(1, '123 Main St', 'Apt 4B', 'Springfield', 'IL', '62701', 'USA'),
+(2, '456 Elm St', NULL, 'Shelbyville', 'IL', '62702', 'USA');
+(3, '789 Oak St', NULL, 'Capital City', 'CA', '90001', 'USA'),
+(4, '101 Maple St', 'Suite 200', 'Metropolis', 'NY', '10001', 'USA'),
+(5, '202 Birch St', NULL, 'Smallville', 'KS', '66002', 'USA'),
+(6, '303 Pine St', NULL, 'Gotham', 'NJ', '07001', 'USA'),
+(7, '404 Cedar St', 'Floor 3', 'Star City', 'WA', '98001', 'USA'),
+(8, '505 Redwood St', 'Apt 12', 'Central City', 'MO', '63001', 'USA'),
+(9, '606 Aspen St', NULL, 'Coast City', 'OR', '97001', 'USA'),
+(10, '707 Willow St', NULL, 'Midway City', 'OH', '43001', 'USA'),
+(11, '808 Cypress St', 'Suite 500', 'Blüdhaven', 'DE', '19901', 'USA'),
+(12, '909 Sequoia St', 'Apt 9', 'Fawcett City', 'TX', '75001', 'USA');
+
+INSERT INTO publisher (id, name, address_id, phone, email)
+VALUES 
+(1, 'Penguin Books', 1, '5551234567', 'contact@penguinbooks.com'),
+(2, 'HarperCollins', 2, '5557654321', 'info@harpercollins.com');
+(3, 'Simon & Schuster', 3, '5552345678', 'info@simonandschuster.com'),
+(4, 'Macmillan Publishers', 4, '5553456789', 'contact@macmillan.com'),
+(5, 'Hachette Livre', 5, '5554567890', 'info@hachette.com'),
+(6, 'Random House', 6, '5555678901', 'contact@randomhouse.com'),
+(7, 'Scholastic', 7, '5556789012', 'info@scholastic.com'),
+(8, 'McGraw-Hill Education', 8, '5557890123', 'contact@mcgraw-hill.com'),
+(9, 'Pearson Education', 9, '5558901234', 'info@pearson.com'),
+(10, 'Springer Nature', 10, '5559012345', 'contact@springernature.com'),
+(11, 'Wiley', 11, '5550123456', 'info@wiley.com'),
+(12, 'Oxford University Press', 12, '5551234568', 'contact@oup.com');
+
+INSERT INTO genre (id, name, description)
+VALUES 
+(1, 'Fiction', 'Literary works invented by the imagination, such as novels or short stories.'),
+(2, 'Non-Fiction', 'Prose writing that is informative or factual rather than fictional.');
+(3, 'Science Fiction', 'Fiction based on imagined future scientific or technological advances.'),
+(4, 'Fantasy', 'Fiction set in an imaginary universe, often involving magic.'),
+(5, 'Mystery', 'Fiction dealing with the solution of a crime or the unraveling of secrets.'),
+(6, 'Thriller', 'Fiction characterized by excitement, suspense, and high stakes.'),
+(7, 'Romance', 'Fiction centered around romantic relationships.'),
+(8, 'Historical Fiction', 'Fiction set in a historical period with fictional characters.'),
+(9, 'Biography', 'Non-fiction work detailing the life of a person.'),
+(10, 'Self-Help', 'Non-fiction books aimed at personal improvement.'),
+(11, 'Graphic Novels', 'Narrative work in which the story is conveyed to the reader using comic form.'),
+(12, 'Young Adult', 'Fiction aimed at young adult readers, often dealing with teen issues.');
+
+INSERT INTO author (id, first_name, last_name, pseudonym, date_of_birth, nationality, email)
+VALUES 
+(1, 'John', 'Doe', 'J.D.', '1980-05-15', 'American', 'johndoe@example.com'),
+(2, 'Jane', 'Smith', NULL, '1975-03-22', 'British', 'janesmith@example.com');
+(3, 'Alice', 'Johnson', NULL, '1985-07-20', 'Canadian', 'alicejohnson@example.com'),
+(4, 'Bob', 'Brown', 'B.B.', '1990-02-17', 'Australian', 'bobbrown@example.com'),
+(5, 'Charlie', 'Davis', 'C.D.', '1978-11-10', 'British', 'charliedavis@example.com'),
+(6, 'Diane', 'Miller', NULL, '1982-08-05', 'American', 'dianemiller@example.com'),
+(7, 'Evan', 'Wilson', NULL, '1976-03-30', 'Irish', 'evanwilson@example.com'),
+(8, 'Fiona', 'Taylor', 'F.T.', '1981-12-22', 'Scottish', 'fionataylor@example.com'),
+(9, 'George', 'Anderson', NULL, '1983-06-15', 'New Zealander', 'georgeanderson@example.com'),
+(10, 'Hannah', 'Thomas', NULL, '1979-01-25', 'South African', 'hannahthomas@example.com'),
+(11, 'Ian', 'Martin', NULL, '1986-09-10', 'American', 'ianmartin@example.com'),
+(12, 'Jackie', 'Lee', NULL, '1988-04-14', 'Chinese', 'jackielee@example.com');
+
+INSERT INTO book (id, isbn, title, subtitle, language, price, publication_date, edition, publisher_id, genre_id, availability)
+VALUES 
+(1, '978-3-16-148410-0', 'The Great Novel', 'An Epic Tale', 'English', 19.99, '2020-10-01', 'First', 1, 1, 10),
+(2, '978-0-12-345678-9', 'The Science Book', NULL, 'English', 29.99, '2021-05-15', 'Second', 2, 2, 5);
+(3, '978-3-16-148411-7', 'Mystery of the Old House', 'A Detective Story', 'English', 14.99, '2019-02-01', 'First', 3, 5, 20),
+(4, '978-0-12-345679-6', 'Science Fiction Saga', NULL, 'English', 24.99, '2020-06-01', 'First', 4, 3, 15),
+(5, '978-3-16-148412-4', 'Fantasy Adventure', NULL, 'English', 18.99, '2018-08-15', 'First', 5, 4, 12),
+(6, '978-0-12-345680-2', 'Romantic Tales', 'Love Stories', 'English', 16.99, '2019-11-10', 'First', 6, 7, 8),
+(7, '978-3-16-148413-1', 'Historical Events', 'A Journey Through Time', 'English', 22.99, '2017-04-22', 'First', 7, 8, 25),
+(8, '978-0-12-345681-9', 'Biography of a Legend', NULL, 'English', 26.99, '2021-01-05', 'First', 8, 9, 18),
+(9, '978-3-16-148414-8', 'Self-Help Guide', 'Improve Your Life', 'English', 15.99, '2020-09-15', 'First', 9, 10, 30),
+(10, '978-0-12-345682-6', 'Graphic Novel Series', 'Volume 1', 'English', 19.99, '2019-07-10', 'First', 10, 11, 22),
+(11, '978-3-16-148415-5', 'Young Adult Fiction', 'A Teen Journey', 'English', 13.99, '2018-05-20', 'First', 11, 12, 10),
+(12, '978-0-12-345683-3', 'Educational Textbook', 'Science and Technology', 'English', 39.99, '2022-03-01', 'First', 12, 2, 5);
+
+INSERT INTO book_author (book_id, author_id)
+VALUES 
+(1, 1),
+(2, 2);
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12);
+
+INSERT INTO book_genre (book_id, genre_id)
+VALUES 
+(1, 1),
+(2, 2);
+(3, 5),
+(4, 3),
+(5, 4),
+(6, 7),
+(7, 8),
+(8, 9),
+(9, 10),
+(10, 11),
+(11, 12),
+(12, 2);
+

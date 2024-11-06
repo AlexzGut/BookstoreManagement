@@ -1,0 +1,105 @@
+CREATE TABLE book (
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	isbn VARCHAR(100) NOT NULL,
+	title VARCHAR(100) NOT NULL,
+	subtitle VARCHAR(100) DEFAULT NULL,
+	language VARCHAR(50) NOT NULL,
+	price DECIMAL(8,2) NOT NULL,
+	publication_date DATE DEFAULT NULL,
+	edition VARCHAR(20) NOT NULL,
+	publisher_id INTEGER NOT NULL,
+	availability INTEGER DEFAULT NULL,
+    
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE author (
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL,
+	pseudonym VARCHAR(50) DEFAULT NULL,
+	date_of_birth DATE NOT NULL,
+	nationality VARCHAR(50) DEFAULT NULL,
+	email VARCHAR(100) DEFAULT NULL,
+    
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE book_author (
+	book_id INTEGER NOT NULL,
+	author_id INTEGER NOT NULL
+);
+
+CREATE TABLE genre (
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	description VARCHAR(250),
+    
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE book_genre (
+	book_id INTEGER NOT NULL,
+	genre_id INTEGER NOT NULL
+);
+
+CREATE TABLE publisher (
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	name VARCHAR(100) NOT NULL,
+	address_id int DEFAULT NULL,
+	phone VARCHAR(10) DEFAULT NULL,
+	email VARCHAR(100) DEFAULT NULL,
+    
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE address (
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	street1 VARCHAR(50) NOT NULL,
+	street2 VARCHAR(50) DEFAULT NULL,
+	city VARCHAR(50) NOT NULL,
+	state_province VARCHAR(50) NOT NULL,
+	postal_code VARCHAR(10) NOT NULL,
+	country VARCHAR(50) NOT NULL,
+    
+    PRIMARY KEY (id)    
+);
+
+-- PRIMARY KEYS
+ALTER TABLE book_author
+	ADD CONSTRAINT book_author_pk
+	PRIMARY KEY (book_id, author_id);
+
+ALTER TABLE book_genre
+	ADD CONSTRAINT book_genre_pk
+	PRIMARY KEY (book_id, genre_id);
+
+-- FOREIGN KEYS
+ALTER TABLE book
+	ADD CONSTRAINT book_publisher_fk
+	FOREIGN KEY (publisher_id) REFERENCES publisher(id);
+
+ALTER TABLE book_author
+	ADD CONSTRAINT book_author_book_id
+	FOREIGN KEY (book_id) REFERENCES book(id);
+
+ALTER TABLE book_author
+	ADD CONSTRAINT book_author_author_id
+	FOREIGN KEY (author_id) REFERENCES author(id);
+
+ALTER TABLE book_genre
+	ADD CONSTRAINT book_genre_book_id
+	FOREIGN KEY (book_id) REFERENCES book(id);
+
+ALTER TABLE book_genre
+	ADD CONSTRAINT book_genre_genre_id
+	FOREIGN KEY (genre_id) REFERENCES genre(id);
+
+ALTER TABLE publisher
+	ADD CONSTRAINT publisher_address_id
+	FOREIGN KEY (address_id) REFERENCES address(id); 
+	
+-- Unique Keys
+ALTER TABLE book
+	ADD CONSTRAINT book_isbn_uk
+	UNIQUE (isbn);

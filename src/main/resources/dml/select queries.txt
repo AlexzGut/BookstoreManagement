@@ -1,0 +1,17 @@
+-- Select all books
+SELECT * FROM book;
+
+-- Select book by isbn
+SELECT *
+FROM book
+WHERE isbn = ?;
+
+-- Select book by publisher
+SELECT * 
+FROM book
+WHERE publisher_id = ?;
+
+-- Select all publishers and their addresses
+SELECT p.name, p.phone, p.email, a.street1, a.street2, a.city, a.state_province, a.postal_code, a.country
+FROM publisher AS p
+	INNER JOIN address AS a USING (address_id);
